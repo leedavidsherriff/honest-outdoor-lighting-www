@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <!-- Google Tag Manager -->
+  <script>
+   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TFK53C7T');
+  </script>
+  <!-- End Google Tag Manager -->
+  <meta charset="utf-8"/>
+  <link href="https://media.base44.com/images/public/69f9b5c437f53a29f371aa62/6e3973726_IMG_3224.png" rel="icon" type="image/svg+xml"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <link href="/manifest.json" rel="manifest"/>
+  <title>
+   Honest Outdoor Lighting
+  </title>
+  <script crossorigin="" src="/assets/index-DIKSxHxv.js" type="module">
+  </script>
+  <link crossorigin="" href="/assets/index-GlxyV9p7.css" rel="stylesheet"/>
+  <script type="module">
+   if (window.self === window.top) {
+  let lastPath = "";
+  function getPageNameFromPath(path) {
+    const segments = path.split("/").filter(Boolean);
+    return segments[0] || null;
+  }
+  function trackPageView() {
+    const path = window.location.pathname;
+    if (path === lastPath) return;
+    lastPath = path;
+    const pageName = getPageNameFromPath(path) || "home";
+    const appId = "69f9b5c437f53a29f371aa62";
+    if (!appId) return;
+    fetch(`/api/app-logs/${appId}/log-user-in-app/${pageName}`, {
+      method: "POST",
+    }).catch(() => {});
+  }
+  const originalPushState = history.pushState.bind(history);
+  history.pushState = function (...args) {
+    originalPushState(...args);
+    trackPageView();
+  };
+  const originalReplaceState = history.replaceState.bind(history);
+  history.replaceState = function (...args) {
+    originalReplaceState(...args);
+    trackPageView();
+  };
+  window.addEventListener("popstate", trackPageView);
+  trackPageView();
+}
+  </script>
+  <meta content="A professional platform for managing outdoor lighting design, project quotes, and client consultations." name="description"/>
+  <meta content="Honest Outdoor Lighting" property="og:title"/>
+  <meta content="A professional platform for managing outdoor lighting design, project quotes, and client consultations." property="og:description"/>
+  <meta content="https://media.base44.com/images/public/69f9b5c437f53a29f371aa62/6e3973726_IMG_3224.png/v1/fill/w_1200,h_630/6e3973726_IMG_3224.png" property="og:image"/>
+  <meta content="https://honestoutdoorlighting.co.uk" property="og:url"/>
+  <meta content="website" property="og:type"/>
+  <meta content="Honest Outdoor Lighting" property="og:site_name"/>
+  <meta content="Honest Outdoor Lighting" name="twitter:title"/>
+  <meta content="A professional platform for managing outdoor lighting design, project quotes, and client consultations." name="twitter:description"/>
+  <meta content="https://media.base44.com/images/public/69f9b5c437f53a29f371aa62/6e3973726_IMG_3224.png/v1/fill/w_1200,h_630/6e3973726_IMG_3224.png" name="twitter:image"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="https://honestoutdoorlighting.co.uk" name="twitter:url"/>
+  <script>
+   (function () {
+  var titles = {"/": "Honest Outdoor Lighting", "/contact": "Contact | Honest Outdoor Lighting", "/about": "About | Honest Outdoor Lighting", "/our-lights": "Our Lights | Honest Outdoor Lighting", "/returns-refunds": "Returns Refunds | Honest Outdoor Lighting", "/cookies": "Cookie Policy | Honest Outdoor Lighting", "/privacy": "Privacy Policy | Honest Outdoor Lighting", "/christmas-package-details": "Christmas Package Details | Honest Outdoor Lighting", "/thank-you": "Thank You | Honest Outdoor Lighting", "/home": "Honest Outdoor Lighting"};
+  // PascalCase boundaries -> "-", mirroring _PASCAL_BOUNDARY_RE without lookbehind
+  // (old Safari fails to PARSE a lookbehind, taking the whole script down).
+  var dashed = function (s) {
+    return s.replace(/([a-z0-9])([A-Z])/g, "$1-$2").replace(/([A-Z])([A-Z][a-z])/g, "$1-$2");
+  };
+  var decode = function (s) {
+    // A %2F inside ONE segment must not become a structural separator: /blog/foo%2Fbar is a
+    // dynamic slug, and letting it split would match a static /blog/foo/bar and write ITS title.
+    try { var d = decodeURIComponent(s); return d.indexOf("/") < 0 ? d : s; } catch (e) { return s; }
+  };
+  var segments = function (path) { return path.split("/").filter(Boolean).map(decode); };
+  var norm = function (path) {
+    var parts = segments(path).map(function (s) { return dashed(s).toLowerCase(); });
+    return parts.length ? "/" + parts.join("/") : "/";
+  };
+  var lastPath = location.pathname, written = document.title, on = true;
+  var sync = function () {
+    // Path only: a hash/query change is the same page, and the SDK strips its own auth
+    // params with replaceState -- neither must clobber a server-rendered title in place.
+    if (!on || location.pathname === lastPath) return;
+    lastPath = location.pathname;
+    if (document.title !== written) { on = false; return; }
+    // Write ONLY a title the map proves. An unmapped path is a dynamic route (/blog/:slug) the
+    // map cannot carry, and writing a placeholder there is destructive, not merely vague: the
+    // prerender worker runs no setUserAgent, so its capture browser reads as human and executes
+    // this script, and coordinator.js's settle wait explicitly tolerates a full navigation --
+    // a redirect landing on an unmapped path would bake the placeholder into the stored
+    // snapshot. Leaving the title alone degrades to today's behavior instead.
+    // Exact lookup only. A dash-stripped retry here would let a genuinely different /set-up
+    // claim /setup: the map carries a dash-free key only where a PascalCase boundary put the
+    // dashes there, and the client cannot tell the two apart. The map emits every reachable
+    // shape per segment instead (_client_url_variants).
+    var title = titles[norm(location.pathname)];
+    if (title === undefined) return;
+    document.title = title;
+    // Re-read: the setter stores verbatim but the getter strips and collapses whitespace, so
+    // keeping the assigned string would make the next sync() read our own write as the app's.
+    written = document.title;
+  };
+  var wrap = function (fn) {
+    // The history entry is already pushed by the time sync() runs, so a throw here would
+    // surface inside the host app's router and break navigation. This is injected into apps
+    // we cannot test, so it swallows rather than trusting the trace.
+    return function () {
+      var r = fn.apply(this, arguments);
+      try { sync(); } catch (e) {}
+      return r;
+    };
+  };
+  history.pushState = wrap(history.pushState);
+  history.replaceState = wrap(history.replaceState);
+  window.addEventListener("popstate", sync);
+})();
+  </script>
+  <meta content="yes" name="mobile-web-app-capable"/>
+  <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+  <meta content="Honest Outdoor Lighting" name="apple-mobile-web-app-title"/>
+  <link href="https://honestoutdoorlighting.co.uk" rel="canonical"/>
+  <script data-seo-source="builder" type="application/ld+json">
+   {"name": "Honest Outdoor Lighting", "@context": "https://schema.org", "@type": "WebSite", "url": "https://honestyoutdoorlighting.co.uk"}
+  </script>
+  <script data-seo-source="builder" type="application/ld+json">
+   {"name": "Honest Outdoor Lighting", "logo": "https://media.base44.com/images/public/69f9b5c437f53a29f371aa62/12d176f0f_logo.png", "@context": "https://schema.org", "@type": "Organization", "url": "https://honestyoutdoorlighting.co.uk"}
+  </script>
+ </head>
+ <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+   <iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-TFK53C7T" style="display:none;visibility:hidden" width="0">
+   </iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div id="root">
+   <div data-seo-source="builder" id="seo-snapshot" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">
+    <main>
+     <header>
+      <h1>
+       Honest Outdoor Lighting
+      </h1>
+      <p>
+       A professional platform for managing outdoor lighting design, project quotes, and client consultations.
+      </p>
+     </header>
+     <nav aria-label="Pages">
+      <h2>
+       Pages
+      </h2>
+      <ul>
+       <li>
+        <a href="/contact">
+         Contact
+        </a>
+        — Contact on Honest Outdoor Lighting. A professional platform for managing outdoor lighting design, project quotes, an.
+       </li>
+       <li>
+        <a href="/about">
+         About
+        </a>
+        — About on Honest Outdoor Lighting. A professional platform for managing outdoor lighting design, project quotes, an.
+       </li>
+       <li>
+        <a href="/our-lights">
+         Our Lights
+        </a>
+        — Our Lights on Honest Outdoor Lighting. A professional platform for managing outdoor lighting design, project quotes, an.
+       </li>
+       <li>
+        <a href="/returns-refunds">
+         Returns Refunds
+        </a>
+        — Returns Refunds on Honest Outdoor Lighting. A professional platform for managing outdoor lighting design, project quotes, an.
+       </li>
+       <li>
+        <a href="/cookies">
+         Cookie Policy
+        </a>
+        — Cookie Policy on Honest Outdoor Lighting. A professional platform for managing outdoor lighting design, project quotes, an.
+       </li>
+       <li>
+        <a href="/privacy">
+         Privacy Policy
+        </a>
+        — Privacy Policy on Honest Outdoor Lighting. A professional platform for managing outdoor lighting design, project quotes, an.
+       </li>
+       <li>
+        <a href="/christmas-package-details">
+         Christmas Package Details
+        </a>
+        — Christmas Package Details on Honest Outdoor Lighting. A professional platform for managing outdoor lighting design, project quotes, an.
+       </li>
+       <li>
+        <a href="/thank-you">
+         Thank You
+        </a>
+        — Thank You on Honest Outdoor Lighting. A professional platform for managing outdoor lighting design, project quotes, an.
+       </li>
+      </ul>
+     </nav>
+    </main>
+   </div>
+  </div>
+ </body>
+</html>
